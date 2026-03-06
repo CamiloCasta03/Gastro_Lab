@@ -1,0 +1,42 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-copper: #b87333;
+  --color-brand-copper-light: #d4955b;
+  --color-brand-copper-dark: #8c5726;
+  --color-brand-charcoal: #36454F;
+  --color-brand-charcoal-light: #526573;
+  --color-brand-charcoal-dark: #222b31;
+  --color-brand-white: #ffffff;
+  --color-brand-offwhite: #f8f9fa;
+  --color-brand-verde-otun: #2a4b3d;
+  --color-brand-verde-otun-light: #3c6b57;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  @apply bg-brand-offwhite text-brand-charcoal;
+}
+
+.copper-gradient {
+  background: linear-gradient(135deg, var(--color-brand-copper-light), var(--color-brand-copper), var(--color-brand-copper-dark));
+}
+
+.glass-panel {
+  @apply bg-white/80 backdrop-blur-md border border-white/20 shadow-xl;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-brand-offwhite);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-brand-copper);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-brand-copper-dark);
+}

@@ -1,0 +1,413 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alquimia Botánica Gastrolab</title>
+    <!-- Google Fonts: Inter and Playfair Display for a premium look -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/src/style.css">
+  </head>
+  <body class="font-sans antialiased bg-brand-offwhite text-brand-charcoal overflow-x-hidden">
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 transition-all duration-300 glass-panel" id="navbar">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-20">
+          <!-- Logo Area -->
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-brand-charcoal text-white flex items-center justify-center relative overflow-hidden group">
+              <i data-lucide="flask-conical" class="w-5 h-5 absolute transition-transform group-hover:-translate-y-8 duration-300"></i>
+              <i data-lucide="leaf" class="w-5 h-5 absolute translate-y-8 transition-transform group-hover:translate-y-0 duration-300 text-brand-verde-otun"></i>
+            </div>
+            <span class="font-serif text-xl font-bold tracking-wider text-brand-charcoal">
+              ALQUIMIA BOTÁNICA
+              <span class="block text-xs font-sans tracking-widest text-brand-copper uppercase mt-0.5">Gastrolab</span>
+            </span>
+          </div>
+          
+          <!-- Desktop Menu -->
+          <div class="hidden md:flex space-x-8 items-center">
+            <a href="#concepto" class="text-sm font-medium tracking-wide hover:text-brand-copper transition-colors">Concepto</a>
+            <a href="#laboratorio" class="text-sm font-medium tracking-wide hover:text-brand-copper transition-colors">El Laboratorio</a>
+            <a href="#ecosistema" class="text-sm font-medium tracking-wide hover:text-brand-copper transition-colors">Ecosistema</a>
+            <a href="#incubadora" class="text-sm font-medium tracking-wide hover:text-brand-copper transition-colors">Incubadora</a>
+            <button class="bg-brand-charcoal text-white px-6 py-2.5 rounded hover:bg-brand-copper transition-all duration-300 text-sm font-medium tracking-wide shadow-md hover:shadow-lg">
+              Agendar Visita
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
+      <!-- Background Image Placeholder (will be replaced by actual image generation) -->
+      <div class="absolute inset-0 z-0">
+        <div class="absolute inset-0 bg-brand-charcoal/40 mix-blend-multiply z-10 hover:bg-brand-charcoal/30 transition-all duration-[2s]"></div>
+        <img id="hero-bg" src="/assets/images/interior_perspective.png" alt="Laboratorio Culinario" class="w-full h-full object-cover object-center scale-105 transform origin-center animate-[subtle-zoom_20s_infinite_alternate]" />
+      </div>
+
+      <!-- Hero Content -->
+      <div class="relative z-20 text-center px-4 max-w-4xl mx-auto mt-16">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-brand-copper/50 bg-brand-charcoal/80 backdrop-blur-sm text-brand-copper-light text-xs font-semibold tracking-widest uppercase mb-8">
+          <i data-lucide="microscope" class="w-3.5 h-3.5"></i>
+          <span>Pereira, Colombia</span>
+        </div>
+        <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl text-white font-bold leading-tight mb-6 drop-shadow-2xl">
+          Ciencia y <span class="italic text-brand-copper-light">Naturaleza</span>
+        </h1>
+        <p class="text-lg md:text-xl text-brand-offwhite font-light max-w-2xl mx-auto mb-10 drop-shadow-md leading-relaxed">
+          El primer Laboratorio de Investigación y Desarrollo Culinario (I+D+i) del Eje Cafetero. Decodificando la agrobiodiversidad colombiana hacia el futuro de la gastronomía.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="#concepto" class="bg-brand-copper text-white px-8 py-3.5 rounded font-medium tracking-wide hover:bg-white hover:text-brand-charcoal transition-all duration-300 shadow-lg group flex items-center justify-center gap-2">
+            Descubrir el Concepto
+            <i data-lucide="arrow-down" class="w-4 h-4 group-hover:translate-y-1 transition-transform"></i>
+          </a>
+          <button class="bg-transparent border border-white text-white px-8 py-3.5 rounded font-medium tracking-wide hover:bg-white/10 transition-all duration-300 backdrop-blur-sm flex items-center justify-center gap-2">
+            <i data-lucide="play-circle" class="w-5 h-5"></i>
+            Ver Manifiesto
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- The Concept Section -->
+    <section id="concepto" class="py-24 bg-brand-offwhite relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+          <!-- Text Content -->
+          <div class="order-2 md:order-1">
+            <h2 class="font-serif text-4xl md:text-5xl font-bold text-brand-charcoal mb-6">
+              Aprovechamiento <span class="text-brand-copper">Radical</span>
+            </h2>
+            <p class="text-brand-charcoal-light mb-6 leading-relaxed text-lg">
+              Alquimia Botánica no es un restaurante tradicional; es un quirófano culinario. Operamos bajo el paradigma de la eficiencia absoluta y la economía circular.
+            </p>
+            <p class="text-brand-charcoal-light mb-8 leading-relaxed">
+              Las mermas orgánicas son sometidas a procesos de biotecnología aplicada—fermentaciones de estado sólido, destilaciones al vacío y deshidrataciones controladas—para generar subproductos de alto valor agregado (garums, vinagres artesanales, kombuchas). Maximizamos el ciclo de vida de cada insumo.
+            </p>
+            
+            <!-- Feature List -->
+            <ul class="space-y-4 mb-10">
+              <li class="flex items-start gap-4">
+                <div class="mt-1 w-8 h-8 rounded-full bg-brand-copper/10 flex items-center justify-center flex-shrink-0 text-brand-copper">
+                  <i data-lucide="recycle" class="w-4 h-4"></i>
+                </div>
+                <div>
+                  <h4 class="font-bold text-brand-charcoal">Filosofía Zero Waste</h4>
+                  <p class="text-sm text-brand-charcoal-light mt-1">Transformación biotecnológica de mermas orgánicas en ingredientes de lujo.</p>
+                </div>
+              </li>
+              <li class="flex items-start gap-4">
+                <div class="mt-1 w-8 h-8 rounded-full bg-brand-verde-otun/10 flex items-center justify-center flex-shrink-0 text-brand-verde-otun">
+                  <i data-lucide="sprout" class="w-4 h-4"></i>
+                </div>
+                <div>
+                  <h4 class="font-bold text-brand-charcoal">Ingredientes Endémicos</h4>
+                  <p class="text-sm text-brand-charcoal-light mt-1">Decodificación molecular de la agrobiodiversidad colombiana (hormigas culonas, mojojoy) para uso empírico en alta cocina.</p>
+                </div>
+              </li>
+              <li class="flex items-start gap-4">
+                <div class="mt-1 w-8 h-8 rounded-full bg-brand-charcoal/10 flex items-center justify-center flex-shrink-0 text-brand-charcoal">
+                  <i data-lucide="flask-conical" class="w-4 h-4"></i>
+                </div>
+                <div>
+                  <h4 class="font-bold text-brand-charcoal">Capacidades Latentes</h4>
+                  <p class="text-sm text-brand-charcoal-light mt-1">Desubicar ingredientes de su contexto histórico para alterar radicalmente su registro sensorial, guiado por nuestra I+D.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+          
+          <!-- Image Composition -->
+          <div class="order-1 md:order-2 relative">
+            <div class="absolute -inset-4 bg-brand-copper/10 rounded-2xl transform rotate-3"></div>
+            <img src="https://images.unsplash.com/photo-1600565193348-f74bd3c7ccdf?q=80&w=2940&auto=format&fit=crop" alt="Laboratorio Culinario Detalles" class="relative z-10 rounded-xl shadow-2xl object-cover h-[500px] w-full" />
+            
+            <!-- Floating Card -->
+            <div class="absolute -bottom-8 -left-8 z-20 glass-panel p-6 rounded-xl max-w-xs border-l-4 border-l-brand-copper">
+              <div class="flex items-center gap-3 mb-2">
+                <div class="w-10 h-10 rounded-full bg-brand-charcoal flex items-center justify-center text-white">
+                  <i data-lucide="test-tube" class="w-5 h-5"></i>
+                </div>
+                <div>
+                  <p class="text-xs text-brand-charcoal-light uppercase tracking-wider font-bold">Investigación</p>
+                  <p class="font-serif font-bold text-brand-charcoal">Fase I+D+i</p>
+                </div>
+              </div>
+              <p class="text-sm text-brand-charcoal-light mt-2 italic">Separando moléculas para descubrir notas degustativas inexploradas.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Architecture & Space Section (Dark Mode) -->
+    <section id="laboratorio" class="py-24 bg-brand-charcoal-dark text-white relative overflow-hidden">
+      <!-- Decorator elements -->
+      <div class="absolute top-0 right-0 w-96 h-96 bg-brand-copper/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+      <div class="absolute bottom-0 left-0 w-96 h-96 bg-brand-verde-otun/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"></div>
+      
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <p class="text-brand-copper uppercase tracking-widest text-sm font-bold mb-3">Labplanning y Diseño Estructural</p>
+          <h2 class="font-serif text-4xl md:text-5xl font-bold mb-6">El Quirófano <span class="italic text-brand-offwhite/70">Culinario</span></h2>
+          <p class="text-brand-offwhite/60 text-lg mb-4">
+            Emplazado meticulosamente para garantizar aislamiento acústico y proximidad con plantas productivas. Acero inoxidable, vidrio y tuberías de cobre expuestas configuran una atmósfera de precisión prístina.
+          </p>
+          <p class="text-brand-offwhite/60 text-lg">
+            Bajo estricto acatamiento a la <strong>Resolución 2674 de 2013</strong>, el diseño sanitario se subordina a la inocuidad total: control fluido-dinámico, materiales bioseguros y geometría que previene la acumulación de detritos orgánicos, organizados en tres macro-áreas segregadas.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Area 1 -->
+          <div class="bg-brand-charcoal rounded-xl border border-white/10 p-8 hover:border-brand-copper/50 transition-colors group">
+            <div class="w-14 h-14 rounded bg-brand-charcoal-dark flex items-center justify-center mb-6 text-brand-copper group-hover:scale-110 transition-transform">
+              <i data-lucide="building" class="w-7 h-7"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-3">I. Área Administrativa</h3>
+            <p class="text-brand-offwhite/50 text-sm leading-relaxed mb-4">
+              Espacio aséptico puro destinado al procesamiento estadístico, redacción de patentes y conceptualización narrativa del producto.
+            </p>
+          </div>
+
+          <!-- Area 2 -->
+          <div class="bg-brand-charcoal rounded-xl border border-white/10 p-8 hover:border-brand-copper/50 transition-colors group">
+            <div class="w-14 h-14 rounded bg-brand-copper/10 flex items-center justify-center mb-6 text-brand-copper group-hover:scale-110 transition-transform relative overflow-hidden">
+              <i data-lucide="microscope" class="w-7 h-7 relative z-10"></i>
+              <div class="absolute inset-0 copper-gradient opacity-0 group-hover:opacity-20 transition-opacity"></div>
+            </div>
+            <h3 class="text-xl font-bold mb-3">II. Lab Físico-Químico</h3>
+            <p class="text-brand-offwhite/50 text-sm leading-relaxed mb-4">
+              Equipado para catas a ciegas en entornos controlados lumínica y acústicamente. Incluye maquinaria sensible aislada de vibraciones mecánicas.
+            </p>
+          </div>
+
+          <!-- Area 3 -->
+          <div class="bg-brand-charcoal rounded-xl border border-white/10 p-8 hover:border-brand-verde-otun/50 transition-colors group">
+            <div class="w-14 h-14 rounded bg-brand-verde-otun/10 flex items-center justify-center mb-6 text-brand-verde-otun group-hover:scale-110 transition-transform relative overflow-hidden">
+              <i data-lucide="shield-alert" class="w-7 h-7 relative z-10"></i>
+              <div class="absolute inset-0 bg-brand-verde-otun opacity-0 group-hover:opacity-20 transition-opacity"></div>
+            </div>
+            <h3 class="text-xl font-bold mb-3">III. Lab Bacteriológico</h3>
+            <p class="text-brand-offwhite/50 text-sm leading-relaxed mb-4">
+              El núcleo crítico de bioseguridad. Sistemas de esclusas, presurización atmosférica diferencial positiva/negativa y flujo laminar para fermentaciones seguras.
+            </p>
+          </div>
+        </div>
+        
+        <!-- NEW: Distribución Espacial Interactiva -->
+        <div class="mt-32 border-t border-white/10 pt-20">
+          <div class="text-center mb-12">
+            <h3 class="font-serif text-3xl font-bold mb-4">Cartografía del Espacio</h3>
+            <p class="text-brand-offwhite/60 text-lg max-w-2xl mx-auto">
+              Descubre la distribución metódica de nuestras áreas: desde el salón donde el comensal se encuentra con la creación, hasta el núcleo profundo de biotecnología.
+            </p>
+          </div>
+          
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+            <!-- Isometric Image Map Reference -->
+            <div class="relative w-full rounded-2xl overflow-hidden glass-panel border-white/5 bg-brand-charcoal shadow-2xl group">
+              <div class="absolute inset-0 bg-brand-copper/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 pointer-events-none"></div>
+              <img src="/assets/images/isometric_layout.png" alt="Plano Isométrico Gastrolab" class="w-full h-auto object-cover transform hover:scale-105 transition-transform duration-700" />
+              <!-- Map Ping Pointers -->
+              <div class="absolute top-1/4 left-1/4 z-20">
+                <span class="relative flex h-4 w-4">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-copper opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-4 w-4 bg-brand-copper"></span>
+                </span>
+                <div class="absolute top-6 -left-8 bg-brand-charcoal/80 backdrop-blur text-brand-copper text-xs px-2 py-1 rounded font-bold border border-brand-copper/30 whitespace-nowrap">Saloon</div>
+              </div>
+              <div class="absolute top-1/2 left-[45%] z-20">
+                <span class="relative flex h-4 w-4">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-4 w-4 bg-white"></span>
+                </span>
+                <div class="absolute top-6 -left-10 bg-brand-charcoal/80 backdrop-blur text-brand-offwhite text-xs px-2 py-1 rounded font-bold border border-white/30 whitespace-nowrap">Isla Creativa</div>
+              </div>
+              <div class="absolute bottom-[30%] right-[30%] z-20">
+                <span class="relative flex h-4 w-4">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-verde-otun opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-4 w-4 bg-brand-verde-otun"></span>
+                </span>
+                <div class="absolute -top-8 -left-10 bg-brand-charcoal/80 backdrop-blur text-brand-verde-otun text-xs px-2 py-1 rounded font-bold border border-brand-verde-otun/30 whitespace-nowrap">Cavas & Biotec</div>
+              </div>
+            </div>
+
+            <!-- Interactive Zones List -->
+            <div class="space-y-4">
+              <!-- Zone 1 -->
+              <div class="group relative overflow-hidden bg-brand-charcoal-dark/50 border border-white/5 rounded-xl p-6 hover:bg-brand-charcoal hover:border-brand-copper/30 transition-all cursor-crosshair">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-brand-copper/5 rounded-full blur-xl -mr-10 -mt-10 group-hover:bg-brand-copper/20 transition-colors"></div>
+                <div class="flex items-center gap-4 mb-3 relative z-10">
+                  <div class="w-10 h-10 rounded-full bg-brand-charcoal flex items-center justify-center text-brand-copper group-hover:bg-brand-copper group-hover:text-white transition-colors">
+                    <i data-lucide="utensils-crossed" class="w-5 h-5"></i>
+                  </div>
+                  <h4 class="text-xl font-bold text-white">Saloon</h4>
+                </div>
+                <p class="text-brand-offwhite/50 text-sm relative z-10 group-hover:text-brand-offwhite/80 transition-colors">El espacio de servicio frontal donde el comensal experimenta el resultado final de la I+D. Diseño elegante y conexión visual directa con el pase de cocina.</p>
+              </div>
+
+              <!-- Zone 2 -->
+              <div class="group relative overflow-hidden bg-brand-charcoal-dark/50 border border-white/5 rounded-xl p-6 hover:bg-brand-charcoal hover:border-white/30 transition-all cursor-crosshair">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full blur-xl -mr-10 -mt-10 group-hover:bg-white/10 transition-colors"></div>
+                <div class="flex items-center gap-4 mb-3 relative z-10">
+                  <div class="w-10 h-10 rounded-full bg-brand-charcoal flex items-center justify-center text-white group-hover:bg-white group-hover:text-brand-charcoal transition-colors">
+                    <i data-lucide="flame" class="w-5 h-5"></i>
+                  </div>
+                  <h4 class="text-xl font-bold text-white">Cocina Central & Isla Creativa</h4>
+                </div>
+                <p class="text-brand-offwhite/50 text-sm relative z-10 group-hover:text-brand-offwhite/80 transition-colors">El motor del laboratorio. Incluye una Isla Creativa central rodeada de estaciones técnicas de alta precisión (Thermomix, Sous-Vide), estación robusta de fuegos, parrilla, y la línea de pase (Emplatados y Espacio de Aprendizaje).</p>
+                <div class="mt-3 flex flex-wrap gap-2 relative z-10">
+                  <span class="text-xs px-2 py-1 rounded bg-black/30 text-brand-offwhite/70 border border-white/10">Fuegos & Hornos</span>
+                  <span class="text-xs px-2 py-1 rounded bg-black/30 text-brand-offwhite/70 border border-white/10">Espacio de Aprendizaje</span>
+                </div>
+              </div>
+
+              <!-- Zone 3 -->
+              <div class="group relative overflow-hidden bg-brand-charcoal-dark/50 border border-white/5 rounded-xl p-6 hover:bg-brand-charcoal hover:border-brand-verde-otun/30 transition-all cursor-crosshair">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-brand-verde-otun/5 rounded-full blur-xl -mr-10 -mt-10 group-hover:bg-brand-verde-otun/20 transition-colors"></div>
+                <div class="flex items-center gap-4 mb-3 relative z-10">
+                  <div class="w-10 h-10 rounded-full bg-brand-charcoal flex items-center justify-center text-brand-verde-otun group-hover:bg-brand-verde-otun group-hover:text-white transition-colors">
+                    <i data-lucide="thermometer-snowflake" class="w-5 h-5"></i>
+                  </div>
+                  <h4 class="text-xl font-bold text-white">Almacenaje & Biotecnología</h4>
+                </div>
+                <p class="text-brand-offwhite/50 text-sm relative z-10 group-hover:text-brand-offwhite/80 transition-colors">Batería de cavas especializadas (Maduración y Fría) e incubadoras térmicas para mermas (Fermentos y Polvos). Espacios esterilizados junto a la Bodega general.</p>
+                <div class="mt-3 flex flex-wrap gap-2 relative z-10">
+                  <span class="text-xs px-2 py-1 rounded bg-brand-verde-otun/10 text-brand-verde-otun border border-brand-verde-otun/20">Cava Madura / Fría</span>
+                  <span class="text-xs px-2 py-1 rounded bg-brand-verde-otun/10 text-brand-verde-otun border border-brand-verde-otun/20">Polvos & Fermentos</span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Social / Human Factor Section -->
+    <section id="ecosistema" class="py-24 bg-white relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <!-- Images Grid -->
+          <div class="grid grid-cols-2 gap-4">
+            <img src="https://images.unsplash.com/photo-1595856417757-bcaf124a919e?q=80&w=1500&auto=format&fit=crop" alt="Agricultor" class="rounded-xl object-cover h-64 w-full shadow-md" />
+            <img src="https://images.unsplash.com/photo-1605296867304-46d5465a13f1?q=80&w=1500&auto=format&fit=crop" alt="Chef elaborando" class="rounded-xl object-cover h-64 w-full shadow-md translate-y-8" />
+          </div>
+          
+          <!-- Text Content -->
+          <div>
+            <div class="inline-flex items-center gap-2 text-brand-verde-otun font-bold uppercase tracking-widest text-sm mb-4">
+              <i data-lucide="users" class="w-4 h-4"></i>
+              Ecosistema Humano
+            </div>
+            <h2 class="font-serif text-4xl md:text-5xl font-bold text-brand-charcoal mb-6">
+              Investigación Acción <span class="text-brand-verde-otun">Participativa</span>
+            </h2>
+            <p class="text-brand-charcoal-light mb-6 text-lg leading-relaxed">
+              La innovación técnica carece de sentido sin el contexto antropológico. Alquimia Botánica opera bajo el paradigma de no realizar extractivismo académico, empoderando a las comunidades originarias.
+            </p>
+            
+            <div class="space-y-6 mt-8">
+              <div class="border-l-2 border-brand-charcoal/10 pl-5 hover:border-brand-verde-otun transition-colors cursor-default group">
+                <h4 class="font-bold text-brand-charcoal group-hover:text-brand-verde-otun transition-colors">Portadores de Tradición</h4>
+                <p class="text-sm text-brand-charcoal-light mt-1">Trabajamos con matronas y campesinos para documentar empíricamente procesos de fermentación, curado y ahumado originarios.</p>
+              </div>
+              <div class="border-l-2 border-brand-charcoal/10 pl-5 hover:border-brand-verde-otun transition-colors cursor-default group">
+                <h4 class="font-bold text-brand-charcoal group-hover:text-brand-verde-otun transition-colors">Democratización Tecnológica</h4>
+                <p class="text-sm text-brand-charcoal-light mt-1">Proveemos herramientas bioseguras para que la tradición oral se convierta en producción aséptica comercializable globalmente.</p>
+              </div>
+              <div class="border-l-2 border-brand-charcoal/10 pl-5 hover:border-brand-verde-otun transition-colors cursor-default group">
+                <h4 class="font-bold text-brand-charcoal group-hover:text-brand-verde-otun transition-colors">Marco Regulatorio y Formalización</h4>
+                <p class="text-sm text-brand-charcoal-light mt-1">Aseguramos protección de patentes, identidad comercial y cumplimiento del Concepto Sanitario para todas nuestras invenciones.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Incubation Center Call to Action -->
+    <section id="incubadora" class="py-24 relative overflow-hidden flex items-center justify-center">
+      <div class="absolute inset-0 z-0">
+        <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?q=80&w=2940&auto=format&fit=crop" alt="Incubadora" class="w-full h-full object-cover object-center filter brightness-50" />
+        <div class="absolute inset-0 copper-gradient opacity-80 mix-blend-multiply"></div>
+      </div>
+      
+      <div class="relative z-10 max-w-4xl mx-auto px-4 text-center">
+        <div class="w-20 h-20 mx-auto rounded-full bg-white/10 backdrop-blur flex items-center justify-center mb-8 border border-white/20">
+          <i data-lucide="lightbulb" class="w-10 h-10 text-white"></i>
+        </div>
+        <h2 class="font-serif text-4xl md:text-6xl font-bold text-white mb-6">Incubadora Culinaria</h2>
+        <p class="text-xl text-white/90 font-light mb-10 max-w-2xl mx-auto leading-relaxed">
+          Buscamos talento con vocación hacia la disrupción. Proporcionamos mentoría integral desde la formalización legal, prototipado en instalaciones industriales asépticas, y sólidas estrategias de Go-To-Market comercial.
+        </p>
+        <button class="bg-white text-brand-copper px-10 py-4 rounded font-bold tracking-wider hover:bg-brand-charcoal hover:text-white transition-all duration-300 shadow-xl transform hover:-translate-y-1">
+          Postular Proyecto de I+D
+        </button>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-brand-charcoal text-brand-charcoal-light py-12 border-t border-white/10">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div class="col-span-1 md:col-span-2">
+          <div class="flex items-center gap-2 mb-4">
+            <i data-lucide="flask-conical" class="w-6 h-6 text-brand-copper"></i>
+            <span class="font-serif text-xl font-bold tracking-wider text-white">
+              ALQUIMIA BOTÁNICA
+            </span>
+          </div>
+          <p class="text-sm max-w-xs mb-6">El primer Laboratorio de I+D+i culinario del Eje Cafetero. Ciencia, bioseguridad y tradición botánica.</p>
+        </div>
+        
+        <!-- Quick Links -->
+        <div>
+          <h4 class="text-white font-bold mb-4 uppercase tracking-wider text-sm">Enlaces</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="#concepto" class="hover:text-brand-copper transition-colors">Concepto</a></li>
+            <li><a href="#laboratorio" class="hover:text-brand-copper transition-colors">Instalaciones</a></li>
+            <li><a href="#ecosistema" class="hover:text-brand-copper transition-colors">IAP</a></li>
+          </ul>
+        </div>
+        
+        <!-- Contact -->
+        <div>
+          <h4 class="text-white font-bold mb-4 uppercase tracking-wider text-sm">Contacto</h4>
+          <ul class="space-y-2 text-sm">
+            <li class="flex items-center gap-2"><i data-lucide="map-pin" class="w-4 h-4"></i> Pereira, Risaralda</li>
+            <li class="flex items-center gap-2"><i data-lucide="mail" class="w-4 h-4"></i> lab@alquimiabotanica.co</li>
+          </ul>
+        </div>
+      </div>
+      <div class="max-w-7xl mx-auto px-4 mt-12 pt-8 border-t border-white/10 text-sm text-center">
+        &copy; 2025 Alquimia Botánica Gastrolab. Todos los derechos reservados.
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script type="module" src="/src/main.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+      lucide.createIcons();
+      
+      // Navbar scroll effect
+      window.addEventListener('scroll', () => {
+        const nav = document.getElementById('navbar');
+        if (window.scrollY > 50) {
+          nav.classList.add('shadow-md', 'bg-white/90');
+          nav.classList.remove('bg-white/80', 'shadow-xl');
+        } else {
+          nav.classList.remove('shadow-md', 'bg-white/90');
+          nav.classList.add('bg-white/80', 'shadow-xl');
+        }
+      });
+    </script>
+  </body>
+</html>
