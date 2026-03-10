@@ -1,16 +1,25 @@
 @import "tailwindcss";
 
 @theme {
-  --color-brand-copper: #b87333;
-  --color-brand-copper-light: #d4955b;
-  --color-brand-copper-dark: #8c5726;
-  --color-brand-charcoal: #36454F;
-  --color-brand-charcoal-light: #526573;
-  --color-brand-charcoal-dark: #222b31;
+  /* Gold palette — replaces copper */
+  --color-brand-gold: #c9a84c;
+  --color-brand-gold-light: #dfc76e;
+  --color-brand-gold-dark: #a07d2e;
+  --color-brand-gold-shimmer: #e8d48b;
+
+  /* Keep structural neutrals */
+  --color-brand-charcoal: #1a1a1a;
+  --color-brand-charcoal-light: #3a3a3a;
+  --color-brand-charcoal-dark: #0d0d0d;
   --color-brand-white: #ffffff;
-  --color-brand-offwhite: #f8f9fa;
+  --color-brand-offwhite: #f5f3ee;
   --color-brand-verde-otun: #2a4b3d;
   --color-brand-verde-otun-light: #3c6b57;
+
+  /* Legacy aliases so existing copper classes don't break */
+  --color-brand-copper: #c9a84c;
+  --color-brand-copper-light: #dfc76e;
+  --color-brand-copper-dark: #a07d2e;
 }
 
 body {
@@ -18,15 +27,41 @@ body {
   @apply bg-brand-offwhite text-brand-charcoal;
 }
 
+/* Cursive brand font class */
+.font-brand {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+}
+
+.gold-gradient {
+  background: linear-gradient(135deg, var(--color-brand-gold-light), var(--color-brand-gold), var(--color-brand-gold-dark));
+}
+
+/* Keep the old class name working */
 .copper-gradient {
-  background: linear-gradient(135deg, var(--color-brand-copper-light), var(--color-brand-copper), var(--color-brand-copper-dark));
+  background: linear-gradient(135deg, var(--color-brand-gold-light), var(--color-brand-gold), var(--color-brand-gold-dark));
+}
+
+/* Gold text shimmer for the brand name */
+.gold-text {
+  background: linear-gradient(135deg, var(--color-brand-gold-shimmer), var(--color-brand-gold), var(--color-brand-gold-dark), var(--color-brand-gold-shimmer));
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gold-shimmer 4s ease-in-out infinite;
+}
+
+@keyframes gold-shimmer {
+  0%, 100% { background-position: 0% center; }
+  50% { background-position: 200% center; }
 }
 
 .glass-panel {
   @apply bg-white/80 backdrop-blur-md border border-white/20 shadow-xl;
 }
 
-/* Custom Scrollbar */
+/* Custom Scrollbar — gold */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -34,9 +69,9 @@ body {
   background: var(--color-brand-offwhite);
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--color-brand-copper);
+  background: var(--color-brand-gold);
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-brand-copper-dark);
+  background: var(--color-brand-gold-dark);
 }
