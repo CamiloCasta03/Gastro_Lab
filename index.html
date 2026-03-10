@@ -348,11 +348,128 @@
         <p class="text-xl text-white/90 font-light mb-10 max-w-2xl mx-auto leading-relaxed">
           Buscamos talento con vocación hacia la disrupción. Proporcionamos mentoría integral desde la formalización legal, prototipado en instalaciones industriales asépticas, y sólidas estrategias de Go-To-Market comercial.
         </p>
-        <button class="bg-white text-brand-copper px-10 py-4 rounded font-bold tracking-wider hover:bg-brand-charcoal hover:text-white transition-all duration-300 shadow-xl transform hover:-translate-y-1">
+        <button id="openFormBtn" class="bg-white text-brand-gold px-10 py-4 rounded font-bold tracking-wider hover:bg-brand-charcoal hover:text-white transition-all duration-300 shadow-xl transform hover:-translate-y-1 cursor-pointer">
           Postular Proyecto de I+D
         </button>
       </div>
     </section>
+
+    <!-- ===================== PROJECT SUBMISSION MODAL ===================== -->
+    <div id="projectModal" class="fixed inset-0 z-[100] hidden items-center justify-center">
+      <!-- Backdrop -->
+      <div id="modalBackdrop" class="absolute inset-0 bg-black/60 backdrop-blur-sm"></div>
+
+      <!-- Modal Container -->
+      <div class="relative z-10 w-full max-w-2xl max-h-[90vh] mx-4 overflow-hidden rounded-2xl shadow-2xl">
+        <!-- Modal Header -->
+        <div class="bg-brand-charcoal-dark p-6 flex items-center justify-between border-b border-white/10">
+          <div>
+            <h3 class="font-brand text-2xl font-bold gold-text">Postular Proyecto</h3>
+            <p class="text-brand-offwhite/50 text-sm mt-1">Completa el formulario para aplicar al programa de incubación</p>
+          </div>
+          <button id="closeModalBtn" class="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors cursor-pointer">
+            <i data-lucide="x" class="w-5 h-5"></i>
+          </button>
+        </div>
+
+        <!-- Modal Body (scrollable) -->
+        <div class="bg-brand-charcoal overflow-y-auto max-h-[calc(90vh-180px)] p-6">
+          <!-- Success State (hidden by default) -->
+          <div id="formSuccess" class="hidden text-center py-12">
+            <div class="w-20 h-20 mx-auto rounded-full bg-brand-verde-otun/20 flex items-center justify-center mb-6">
+              <i data-lucide="check-circle" class="w-10 h-10 text-brand-verde-otun"></i>
+            </div>
+            <h4 class="font-serif text-2xl font-bold text-white mb-3">¡Propuesta Recibida!</h4>
+            <p class="text-brand-offwhite/60 max-w-sm mx-auto">Nuestro equipo de I+D revisará tu proyecto y te contactaremos en los próximos 5 días hábiles.</p>
+          </div>
+
+          <!-- Form -->
+          <form id="projectForm" class="space-y-6">
+            <!-- Personal Info Row -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label for="applicantName" class="block text-sm font-medium text-brand-offwhite/70 mb-1.5">Nombre Completo *</label>
+                <input type="text" id="applicantName" name="applicantName" required placeholder="Tu nombre" class="w-full bg-brand-charcoal-dark border border-white/10 rounded-lg px-4 py-3 text-white placeholder-white/30 focus:outline-none focus:border-brand-gold/50 focus:ring-1 focus:ring-brand-gold/30 transition-colors text-sm" />
+              </div>
+              <div>
+                <label for="applicantEmail" class="block text-sm font-medium text-brand-offwhite/70 mb-1.5">Correo Electrónico *</label>
+                <input type="email" id="applicantEmail" name="applicantEmail" required placeholder="correo@ejemplo.com" class="w-full bg-brand-charcoal-dark border border-white/10 rounded-lg px-4 py-3 text-white placeholder-white/30 focus:outline-none focus:border-brand-gold/50 focus:ring-1 focus:ring-brand-gold/30 transition-colors text-sm" />
+              </div>
+            </div>
+
+            <!-- Project Name -->
+            <div>
+              <label for="projectName" class="block text-sm font-medium text-brand-offwhite/70 mb-1.5">Nombre del Proyecto *</label>
+              <input type="text" id="projectName" name="projectName" required placeholder="Ej: Fermentación de frutas amazónicas" class="w-full bg-brand-charcoal-dark border border-white/10 rounded-lg px-4 py-3 text-white placeholder-white/30 focus:outline-none focus:border-brand-gold/50 focus:ring-1 focus:ring-brand-gold/30 transition-colors text-sm" />
+            </div>
+
+            <!-- Category -->
+            <div>
+              <label for="projectCategory" class="block text-sm font-medium text-brand-offwhite/70 mb-1.5">Categoría de Innovación *</label>
+              <select id="projectCategory" name="projectCategory" required class="w-full bg-brand-charcoal-dark border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-gold/50 focus:ring-1 focus:ring-brand-gold/30 transition-colors text-sm appearance-none cursor-pointer">
+                <option value="" disabled selected class="text-white/30">Selecciona una categoría</option>
+                <option value="fermentacion">Fermentación & Biotecnología</option>
+                <option value="ingredientes">Ingredientes Endémicos</option>
+                <option value="zero-waste">Zero Waste & Economía Circular</option>
+                <option value="tecnicas">Técnicas Culinarias Experimentales</option>
+                <option value="producto">Desarrollo de Producto Comercial</option>
+                <option value="otro">Otro</option>
+              </select>
+            </div>
+
+            <!-- Project Description -->
+            <div>
+              <label for="projectDescription" class="block text-sm font-medium text-brand-offwhite/70 mb-1.5">Descripción del Proyecto *</label>
+              <textarea id="projectDescription" name="projectDescription" required rows="4" placeholder="Describe tu proyecto: ¿Qué problema resuelve? ¿Cuál es la propuesta de valor? ¿Qué resultados esperas?" class="w-full bg-brand-charcoal-dark border border-white/10 rounded-lg px-4 py-3 text-white placeholder-white/30 focus:outline-none focus:border-brand-gold/50 focus:ring-1 focus:ring-brand-gold/30 transition-colors text-sm resize-none"></textarea>
+              <p class="text-xs text-brand-offwhite/30 mt-1">Mínimo 50 caracteres</p>
+            </div>
+
+            <!-- Ideas & Innovation -->
+            <div>
+              <label for="projectIdeas" class="block text-sm font-medium text-brand-offwhite/70 mb-1.5">Ideas de Innovación & Diferenciación</label>
+              <textarea id="projectIdeas" name="projectIdeas" rows="3" placeholder="¿Qué lo hace único? ¿Qué ingredientes o técnicas innovadoras planeas utilizar? ¿Cómo se diferencia de lo existente en el mercado?" class="w-full bg-brand-charcoal-dark border border-white/10 rounded-lg px-4 py-3 text-white placeholder-white/30 focus:outline-none focus:border-brand-gold/50 focus:ring-1 focus:ring-brand-gold/30 transition-colors text-sm resize-none"></textarea>
+            </div>
+
+            <!-- Stage & Budget Row -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label for="projectStage" class="block text-sm font-medium text-brand-offwhite/70 mb-1.5">Etapa de Desarrollo</label>
+                <select id="projectStage" name="projectStage" class="w-full bg-brand-charcoal-dark border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-gold/50 focus:ring-1 focus:ring-brand-gold/30 transition-colors text-sm appearance-none cursor-pointer">
+                  <option value="idea">Idea / Concepto</option>
+                  <option value="prototipo">Prototipo Inicial</option>
+                  <option value="validacion">Validación de Mercado</option>
+                  <option value="produccion">En Producción</option>
+                </select>
+              </div>
+              <div>
+                <label for="projectBudget" class="block text-sm font-medium text-brand-offwhite/70 mb-1.5">Presupuesto Estimado</label>
+                <select id="projectBudget" name="projectBudget" class="w-full bg-brand-charcoal-dark border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-gold/50 focus:ring-1 focus:ring-brand-gold/30 transition-colors text-sm appearance-none cursor-pointer">
+                  <option value="bajo">< $5.000.000 COP</option>
+                  <option value="medio">$5M - $20M COP</option>
+                  <option value="alto">$20M - $50M COP</option>
+                  <option value="corporativo">> $50.000.000 COP</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Additional Resources -->
+            <div>
+              <label for="projectResources" class="block text-sm font-medium text-brand-offwhite/70 mb-1.5">Recursos o Apoyo que Necesitas</label>
+              <textarea id="projectResources" name="projectResources" rows="2" placeholder="Ej: Acceso a laboratorio, mentoría en fermentación, apoyo en registro INVIMA, diseño de empaque..." class="w-full bg-brand-charcoal-dark border border-white/10 rounded-lg px-4 py-3 text-white placeholder-white/30 focus:outline-none focus:border-brand-gold/50 focus:ring-1 focus:ring-brand-gold/30 transition-colors text-sm resize-none"></textarea>
+            </div>
+          </form>
+        </div>
+
+        <!-- Modal Footer -->
+        <div id="formFooter" class="bg-brand-charcoal-dark p-6 border-t border-white/10 flex items-center justify-between">
+          <p class="text-xs text-brand-offwhite/30">Los campos con * son obligatorios</p>
+          <div class="flex gap-3">
+            <button id="cancelFormBtn" type="button" class="px-6 py-2.5 rounded-lg border border-white/10 text-brand-offwhite/60 hover:bg-white/5 transition-colors text-sm font-medium cursor-pointer">Cancelar</button>
+            <button id="submitFormBtn" type="button" class="px-8 py-2.5 rounded-lg gold-gradient text-brand-charcoal font-bold text-sm tracking-wide hover:opacity-90 transition-opacity shadow-lg cursor-pointer">Enviar Postulación</button>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- Footer -->
     <footer class="bg-brand-charcoal text-brand-charcoal-light py-12 border-t border-white/10">
@@ -383,7 +500,7 @@
           <h4 class="text-white font-bold mb-4 uppercase tracking-wider text-sm">Contacto</h4>
           <ul class="space-y-2 text-sm">
             <li class="flex items-center gap-2"><i data-lucide="map-pin" class="w-4 h-4"></i> Pereira, Risaralda</li>
-            <li class="flex items-center gap-2"><i data-lucide="mail" class="w-4 h-4"></i> lab@alquimiabotanica.co</li>
+            <li class="flex items-center gap-2"><i data-lucide="mail" class="w-4 h-4"></i> lab@castagastrolab.co</li>
           </ul>
         </div>
       </div>
@@ -408,6 +525,94 @@
           nav.classList.remove('shadow-md', 'bg-white/90');
           nav.classList.add('bg-white/80', 'shadow-xl');
         }
+      });
+
+      // ===== PROJECT SUBMISSION MODAL =====
+      const modal = document.getElementById('projectModal');
+      const openBtn = document.getElementById('openFormBtn');
+      const closeBtn = document.getElementById('closeModalBtn');
+      const cancelBtn = document.getElementById('cancelFormBtn');
+      const backdrop = document.getElementById('modalBackdrop');
+      const submitBtn = document.getElementById('submitFormBtn');
+      const form = document.getElementById('projectForm');
+      const successEl = document.getElementById('formSuccess');
+      const footerEl = document.getElementById('formFooter');
+
+      function openModal() {
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        document.body.style.overflow = 'hidden';
+        // Reset form if it was previously submitted
+        form.classList.remove('hidden');
+        successEl.classList.add('hidden');
+        footerEl.classList.remove('hidden');
+      }
+
+      function closeModal() {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+        document.body.style.overflow = '';
+      }
+
+      openBtn.addEventListener('click', openModal);
+      closeBtn.addEventListener('click', closeModal);
+      cancelBtn.addEventListener('click', closeModal);
+      backdrop.addEventListener('click', closeModal);
+
+      // Close on Escape key
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !modal.classList.contains('hidden')) closeModal();
+      });
+
+      // Form submission
+      submitBtn.addEventListener('click', () => {
+        // Validate required fields
+        const name = document.getElementById('applicantName').value.trim();
+        const email = document.getElementById('applicantEmail').value.trim();
+        const projectName = document.getElementById('projectName').value.trim();
+        const category = document.getElementById('projectCategory').value;
+        const description = document.getElementById('projectDescription').value.trim();
+
+        if (!name || !email || !projectName || !category || !description) {
+          // Trigger native HTML validation
+          form.reportValidity();
+          return;
+        }
+
+        if (description.length < 50) {
+          alert('La descripción del proyecto debe tener al menos 50 caracteres.');
+          return;
+        }
+
+        // Collect all form data
+        const formData = {
+          nombre: name,
+          email: email,
+          proyecto: projectName,
+          categoria: category,
+          descripcion: description,
+          ideas: document.getElementById('projectIdeas').value.trim(),
+          etapa: document.getElementById('projectStage').value,
+          presupuesto: document.getElementById('projectBudget').value,
+          recursos: document.getElementById('projectResources').value.trim(),
+          fecha: new Date().toISOString()
+        };
+
+        console.log('Postulación recibida:', formData);
+
+        // Show success state
+        form.classList.add('hidden');
+        footerEl.classList.add('hidden');
+        successEl.classList.remove('hidden');
+
+        // Re-init lucide icons for the success checkmark
+        lucide.createIcons();
+
+        // Auto-close after 4 seconds
+        setTimeout(() => {
+          closeModal();
+          form.reset();
+        }, 4000);
       });
     </script>
   </body>
